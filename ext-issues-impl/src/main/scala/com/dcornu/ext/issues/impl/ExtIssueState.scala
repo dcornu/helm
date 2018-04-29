@@ -15,7 +15,7 @@ final case class ExtIssueState(content: Option[ExtIssue], published: Boolean) {
   def withBody(extIssue: ExtIssue): ExtIssueState = {
     content match {
       case Some(c) =>
-        copy(content = Some(c.copy(key = extIssue.key)))
+        copy(content =  Some(extIssue.copy()))
       case None =>
         throw new IllegalStateException("Can't set body without content")
     }
